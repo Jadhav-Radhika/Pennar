@@ -348,11 +348,11 @@ export class CustomerDataEntryScreenComponent implements OnInit {
     }
  }
 
- GetRecommendedProducts( form : NgForm) 
+ GetRecommendedProducts( form : NgForm)
  {
-  this._toastr.show("This is Test "); debugger;
-
-   this._GenerateProposal.GetRecommendedProducts(form); debugger;
+  this._toastr.show("This is Test ");
+  alert(form);
+   this._GenerateProposal.GetRecommendedProducts(form);
  }
 
   // code to toast notification

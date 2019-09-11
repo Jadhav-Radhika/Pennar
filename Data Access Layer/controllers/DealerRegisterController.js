@@ -18,7 +18,39 @@ router.get('/', (req, res) => {
 
 //post the dealer Info and save dealer to the database
 router.post('/', (req, res, next) => {
+    console.log("PostCall")
+        var DealerId=1;
+        console.log(DealerId);
+        var NextId="1";
+        console.log(NextId);
+        RegisterDealer.find().then(function(DealerDetails){
+        
+        if(!DealerDetails){return res.sendStatus(401);}
+      var maxValue=0;
+      DealerDetails.forEach(element => {
+           
+            var Id1= parseInt(element.DealerId);
+           
+            if(maxValue< Id1)
+            {
+                maxValue = Id1;
+            }          
+      });
+      DealerId= maxValue + 1;
+      console.log(" Incremented Id "+ DealerId);
+     
+      if(DealerId!=null)
+      {
+        NextId=DealerId.toString();
+      
+      }
+
     var registerDealer = new RegisterDealer();
+    registerDealer.DealerId = NextId;
+    registerDealer.CreatedDate = "";
+    registerDealer.ModifiedDate = "";
+    registerDealer.IsActive = "";
+
     registerDealer.DealerName = req.body.DealerName;
     registerDealer.Address = req.body.Address;
     registerDealer.Email = req.body.Email;
@@ -47,6 +79,7 @@ router.post('/', (req, res, next) => {
 
     });
     console.log('Inside Reg Function..');
+});
 });
 
 // deny Dealer method

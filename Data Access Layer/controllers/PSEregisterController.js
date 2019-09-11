@@ -21,32 +21,38 @@ const RegisterPennarSalesEnginner = mongoose.model('RegisterPennarSalesEnginner'
     
     });
     router.post('/', (req, res, next) => {
-//         console.log("PostCall")
-//         var ID=1;
-//         var NextId="1";
-//        RegisterPennarSalesEnginner.find().then(function(proposals){
+        console.log("PostCall")
+        var PennarSalesEnggId=1;
+        console.log(PennarSalesEnggId);
+        var NextId="1";
+        console.log(NextId);
+       RegisterPennarSalesEnginner.find().then(function(pseDetails){
         
-//         if(!proposals){return res.sendStatus(401);}
-//       var maxValue=0;
-//         proposals.forEach(element => {
+        if(!pseDetails){return res.sendStatus(401);}
+      var maxValue=0;
+      pseDetails.forEach(element => {
            
-//             var Id1= parseInt(element.ID);
+            var Id1= parseInt(element.PennarSalesEnggId);
            
-//             if(maxValue< Id1)
-//             {
-//                 maxValue = Id1;
-//             }          
-//       });
-//       ID= maxValue + 1;
+            if(maxValue< Id1)
+            {
+                maxValue = Id1;
+            }          
+      });
+      PennarSalesEnggId= maxValue + 1;
+      console.log(" Incremented Id "+ PennarSalesEnggId);
      
-//       if(ID!=null)
-//       {
-//         NextId=ID.toString();
+      if(PennarSalesEnggId!=null)
+      {
+        NextId=PennarSalesEnggId.toString();
       
-//       }
-// });
+      }
 
     var registerPennarSalesEngineer = new RegisterPennarSalesEnginner();
+    registerPennarSalesEngineer.PennarSalesEnggId = NextId;
+    registerPennarSalesEngineer.CreatedDate = "";
+    registerPennarSalesEngineer.ModifiedDate = "";
+    registerPennarSalesEngineer.IsActive = "";
     registerPennarSalesEngineer.FirstName = req.body.FirstName;
     registerPennarSalesEngineer.LastName = req.body.LastName;
     registerPennarSalesEngineer.Address = req.body.Address;
@@ -67,6 +73,7 @@ const RegisterPennarSalesEnginner = mongoose.model('RegisterPennarSalesEnginner'
 
     });
     // console.log('Inside Reg Function..');
+});
 });
 
 //deny Pennar Sales Engineer

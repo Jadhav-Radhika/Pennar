@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-var registerDealerSchema = new mongoose.Schema({
-    // _id : {
-    //     type: String
-    // },
+var registerDealerSchema = new mongoose.Schema({ 
+     id : { type : String },
+     DealerId:{type:String},
+
+     CreatedDate : { type : String },
+
+     ModifiedDate : { type : String },
+     
+     IsActive : { type : String },
+
     DealerName: {
         type: String,
         // required: 'Full name can\'t be empty'
