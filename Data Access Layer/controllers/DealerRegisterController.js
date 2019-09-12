@@ -50,6 +50,7 @@ router.post('/', (req, res, next) => {
     registerDealer.CreatedDate = "";
     registerDealer.ModifiedDate = "";
     registerDealer.IsActive = "";
+    registerDealer.Status ="false";
 
     registerDealer.DealerName = req.body.DealerName;
     registerDealer.Address = req.body.Address;

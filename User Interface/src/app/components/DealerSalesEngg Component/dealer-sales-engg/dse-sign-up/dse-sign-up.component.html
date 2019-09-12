@@ -1,7 +1,7 @@
 <div>
   <img src="/assets/img/users.png" id="icon" alt="User Icon" />
 </div>
- <form #DSEsignUpForm="ngForm" (ngSubmit)="DSEsignUpForm.valid && onDSESubmit(DSEsignUpForm)">
+ <!-- <form #DSEsignUpForm="ngForm" (ngSubmit)="DSEsignUpForm.valid && onDSESubmit(DSEsignUpForm)">
   <input type="text" #DSEname="ngModel" [(ngModel)]="_DealerSalesEnggService.SelectedDealerSalesEngg.DSEname" name="DSEname" placeholder="Full Name"
   required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !DSEname.valid }">
   <div *ngIf="DSEsignUpForm.submitted && !DSEname.valid">
@@ -22,19 +22,19 @@
     <label *ngIf="DSEpassword.errors.minlength" class="validation-message">Enter atleast 4 characters.</label>
   </div>
   <input type="submit" value="Sign Up">
-</form>
+</form> -->
 
 <!-- Success message -->
-<div class="success" *ngIf="showSucessMessage">
+<!-- <div class="success" *ngIf="showSucessMessage">
   Saved successfully
-</div>
+</div> -->
 
 <!-- Error message -->
-<div class="alert" *ngIf="serverErrorMessages">
+<!-- <div class="alert" *ngIf="serverErrorMessages">
   {{serverErrorMessages}}
-</div> 
+</div>  --> 
 
-<!-- <form >
+<form #DSEsignUpForm="ngForm" (ngSubmit)="DSEsignUpForm.valid && onDSESubmit(DSEsignUpForm)">
   <div class="row">
    
     <div class="input-field col-md-4" >
@@ -42,7 +42,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #FirstName="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.FirstName" name="FirstName"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !FirstName.valid }">
   </div>
 </div>
  
@@ -53,7 +54,8 @@
   </div>
   
   <div class="input-field col-md-8">
-  <input type="text">
+  <input type="text" #LastName="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.LastName" name="LastName"
+  required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !LastName.valid }">
   </div>
    
   </div>
@@ -67,7 +69,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #Address="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.Address" name="Address"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !Address.valid }">
   </div>
 
   </div>
@@ -79,7 +82,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #Email="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.Email" name="Email"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !Email.valid }">
   </div>
 
   </div>
@@ -91,7 +95,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #MobileNumber="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.MobileNumber" name="MobileNumber"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !MobileNumber.valid }">
   </div>
 
   </div>
@@ -103,7 +108,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #PANNumber="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.PANNumber" name="PANNumber"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !PANNumber.valid }">
   </div>
 
   </div>
@@ -115,7 +121,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #AdharNumber="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.AdharNumber" name="AdharNumber"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !AdharNumber.valid }">
   </div>
 
   </div>
@@ -127,7 +134,8 @@
     </div>
 
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #DealerCode="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.DealerCode" name="DealerCode"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !DealerCode.valid }">
   </div>
 
   </div>
@@ -139,12 +147,13 @@
     </div>
     
     <div class="input-field col-md-8">
-    <input type="text">
+    <input type="text" #Password="ngModel" [(ngModel)]="_registerDSE.selectedDealerSalesEngg.Password" name="Password"
+    required  [ngClass]="{'invalid-textbox' :DSEsignUpForm.submitted && !Password.valid }">
   </div>
 
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
    
     <div class="input-field col-md-4">
         <label>Confirm Password :</label>
@@ -154,7 +163,7 @@
     <input type="text">
   </div>
 
-  </div>
+  </div> -->
 
   <div class="row">
    
@@ -166,4 +175,14 @@
     </div>
 
   </div>
-</form> -->
+</form> 
+
+<!-- Success message -->
+<div class="success" *ngIf="showSucessMessage">
+  Saved successfully
+</div>
+
+<!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+  {{serverErrorMessages}}
+</div>

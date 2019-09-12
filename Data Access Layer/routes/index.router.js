@@ -11,7 +11,7 @@ const ctrDealerSalesEngg = require('../controllers/DSE.controller');
 const ctrRegisterPennarSalesEngg = require('../controllers/PSEregisterController');
 
 //Login Sales Manger HO
-const ctrRegisterSalesManagerHo = require('../controllers/SalesManagerHOLoginController');
+// const ctrRegisterSalesManagerHo = require('../controllers/SalesManagerHOLoginController');
 
 const jwtHelper = require('../config/jwtHelper');
 const DSEjwtHelper = require('../config/DSEjwtHelper');

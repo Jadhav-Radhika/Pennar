@@ -122,56 +122,55 @@ router.get('/', (req, res) => {
 
 //post the dealer Info and save dealer to the database
  router.post('/', (req, res, next) => {
-    // console.log("PostCall")
-    //     var DealerId=1;
-    //     console.log(DealerId);
-    //     var NextId="1";
-    //     console.log(NextId);
-    //     DealerSalesEngineer.find().then(function(DealerDetails){
+    console.log("PostCall")
+        var DealerSalesEngggId=1;
+        console.log(DealerSalesEngggId);
+        var NextId="1";
+        console.log(NextId);
+        DealerSalesEngineer.find().then(function(dseDetails){
         
-    //     if(!DealerDetails){return res.sendStatus(401);}
-    //   var maxValue=0;
-    //   DealerDetails.forEach(element => {
+        if(!dseDetails){return res.sendStatus(401);}
+      var maxValue=0;
+      dseDetails.forEach(element => {
            
-    //         var Id1= parseInt(element.DealerId);
+            var Id1= parseInt(element.DealerSalesEngggId);
            
-    //         if(maxValue< Id1)
-    //         {
-    //             maxValue = Id1;
-    //         }          
-    //   });
-    //   DealerId= maxValue + 1;
-    //   console.log(" Incremented Id "+ DealerId);
+            if(maxValue< Id1)
+            {
+                maxValue = Id1;
+            }          
+      });
+      DealerSalesEngggId= maxValue + 1;
+      console.log(" Incremented Id "+ DealerSalesEngggId);
      
-    //   if(DealerId!=null)
-    //   {
-    //     NextId=DealerId.toString();
+      if(DealerSalesEngggId!=null)
+      {
+        NextId=DealerSalesEngggId.toString();
       
-    //   }
+      }
 
-    var registerDealer = new DealerSalesEngineer();
-    registerDealer.DealerId = NextId;
-    registerDealer.CreatedDate = "";
-    registerDealer.ModifiedDate = "";
-    registerDealer.IsActive = "";
+    var registerDealerSalesEngg = new DealerSalesEngineer();
+    registerDealerSalesEngg.DealerSalesEngggId = NextId;
+    registerDealerSalesEngg.CreatedDate = "";
+    registerDealerSalesEngg.ModifiedDate = "";
+    registerDealerSalesEngg.IsActive = "";
+    registerDealerSalesEngg.Status ="false";
 
-    registerDealer.DealerName = req.body.DealerName;
-    registerDealer.Address = req.body.Address;
-    registerDealer.Email = req.body.Email;
-    registerDealer.ContactNumber = req.body.ContactNumber;
-    registerDealer.City = req.body.City;
-    registerDealer.State = req.body.State;
-    registerDealer.ContactKeyPerson = req.body.ContactKeyPerson;
-    registerDealer.ContactKeyPersonName = req.body.ContactKeyPersonName;
-    registerDealer.ContactKeyPersonMobileNumber = req.body.ContactKeyPersonMobileNumber;
-    registerDealer.GSTnumber = req.body.GSTnumber;
-    registerDealer.PANnumber = req.body.PANnumber;
-    registerDealer.OtherDetails = req.body.OtherDetails;
-    registerDealer.AreaOfOperation = req.body.AreaOfOperation;
-    registerDealer.EmployeeStrength = req.body.EmployeeStrength;
-    registerDealer.AnyOtherInfo1 = req.body.AnyOtherInfo1;
-    registerDealer.AnyOtherInfo2 = req.body.AnyOtherInfo2;
-    registerDealer.save((err, doc) => {
+    registerDealerSalesEngg.FirstName = req.body.FirstName;
+    registerDealerSalesEngg.LastName = req.body.LastName;
+    registerDealerSalesEngg.Address = req.body.Address;
+    registerDealerSalesEngg.Email = req.body.Email;
+    registerDealerSalesEngg.MobileNumber = req.body.MobileNumber;
+    registerDealerSalesEngg.PANNumber = req.body.PANNumber;
+    registerDealerSalesEngg.AdharNumber = req.body.AdharNumber;
+    registerDealerSalesEngg.DealerCode = req.body.DealerCode;
+    registerDealerSalesEngg.Password = req.body.Password;
+    registerDealerSalesEngg.SalesManagerHO_Id = req.body.SalesManagerHO_Id;
+    registerDealerSalesEngg.DealerApproval = req.body.DealerApproval;
+    registerDealerSalesEngg.PennarSalesManagerApproval = req.body.PennarSalesManagerApproval;
+    registerDealerSalesEngg.DealerId = req.body.DealerId;
+    
+    registerDealerSalesEngg.save((err, doc) => {
         if (!err)
             res.send(doc);
         else {
@@ -184,7 +183,7 @@ router.get('/', (req, res) => {
     });
     console.log('Inside Reg Function..');
  });
-// });
+});
 
 // // deny Dealer method
 // router.delete('/:id',(req,res)=>

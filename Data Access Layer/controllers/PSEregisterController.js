@@ -9,17 +9,18 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const RegisterPennarSalesEnginner = mongoose.model('RegisterPennarSalesEnginner');
 
 
-    router.get('/', (req, res) => {
+router.get('/', (req, res) => {
 
-        RegisterPennarSalesEnginner.find((err, docs) => {
-    
-            if (!err) { res.send(docs); }
-    
-            else { console.log('Error in Retriving Pennar Sales Engineer Details :' + JSON.stringify(err, undefined, 2)); }
-    
-        });
-    
+    RegisterPennarSalesEnginner.find((err, docs) => {
+
+        if (!err) { res.send(docs); }
+
+        else { console.log('Error in Retriving Pennar Sales Engineer Details :' + JSON.stringify(err, undefined, 2)); }
+
     });
+
+});
+
     router.post('/', (req, res, next) => {
         console.log("PostCall")
         var PennarSalesEnggId=1;
@@ -53,6 +54,7 @@ const RegisterPennarSalesEnginner = mongoose.model('RegisterPennarSalesEnginner'
     registerPennarSalesEngineer.CreatedDate = "";
     registerPennarSalesEngineer.ModifiedDate = "";
     registerPennarSalesEngineer.IsActive = "";
+    registerPennarSalesEngineer.Status ="false";
     registerPennarSalesEngineer.FirstName = req.body.FirstName;
     registerPennarSalesEngineer.LastName = req.body.LastName;
     registerPennarSalesEngineer.Address = req.body.Address;

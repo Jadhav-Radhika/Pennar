@@ -13,6 +13,8 @@ var registerPennarSalesEnggSchema = new mongoose.Schema({
      
      IsActive : { type : String },
 
+     Status : { type:Boolean, default:false},
+
      
     FirstName: {
         type: String,

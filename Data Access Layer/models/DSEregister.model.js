@@ -31,6 +31,8 @@ var DealerSalesEngineerSchema = new mongoose.Schema({
      ModifiedDate : { type : String },
      
      IsActive : { type : String },
+     
+     Status : { type:Boolean, default:false},
 
      FirstName: {
         type: String,

@@ -11,6 +11,8 @@ var registerDealerSchema = new mongoose.Schema({
      
      IsActive : { type : String },
 
+     Status : { type:Boolean, default:false},
+
     DealerName: {
         type: String,
         // required: 'Full name can\'t be empty'
