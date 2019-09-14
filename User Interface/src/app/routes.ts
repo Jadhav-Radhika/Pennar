@@ -21,8 +21,6 @@ import { PraposalFormatComponent } from './components/admin/praposal-format/prap
 import { DSESignUpComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dse-sign-up/dse-sign-up.component';
 import { DealerSalesEnggComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dealer-sales-engg.component';
 import { DseSignInComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dse-sign-in/dse-sign-in.component';
-import { DealerSalesEnggDashboardComponent } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/dealer-sales-engg-dashboard.component';
-import { CustomerDetailsComponent } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/customer-details/customer-details.component';
 
 
 //Sales Manager Ho//
@@ -153,13 +151,7 @@ export const appRoutes: Routes = [
         path: 'DealerSalesEnggLogin', component: DealerSalesEnggComponent,
         children: [{ path: '', component: DseSignInComponent}]
     },
-    {
-        path: 'DealerSalesEnggDashboard', component: DealerSalesEnggDashboardComponent, canActivate: [AuthGuard]
-
-    },
-    {
-        path: 'customerDetails' , component: CustomerDetailsComponent
-    },
+    
 
     // Dealers // 
     {

@@ -43,18 +43,6 @@ import { PraposalFormatComponent } from './components/admin/praposal-format/prap
 import { DealerSalesEnggComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dealer-sales-engg.component';
 import { DSESignUpComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dse-sign-up/dse-sign-up.component';
 import { DseSignInComponent } from './components/DealerSalesEngg Component/dealer-sales-engg/dse-sign-in/dse-sign-in.component';
-import { DealerSalesEnggDashboardComponent } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/dealer-sales-engg-dashboard.component';
-import { DealerSalesEnggService } from './components/DealerSalesEngg Component/shared/dealer-sales-engg.service';
-import { CustomerDetailsComponent } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/customer-details/customer-details.component';
-import { RegistrationStep1Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step1/registration-step1.component';
-import { RegistrationStep2Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step2/registration-step2.component';
-import { RegistrationStep3Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step3/registration-step3.component';
-import { RegistrationStep4Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step4/registration-step4.component';
-import { RegistrationStep5Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step5/registration-step5.component';
-import { RegistrationStep6Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step6/registration-step6.component';
-import { RegistrationStep7Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step7/registration-step7.component';
-import { RegistrationStep8Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step8/registration-step8.component';
-import { RegistrationStep9Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step9/registration-step9.component';
 import { HeaderComponent } from './components/admin/Common Components/header/header.component';
 import { FooterComponent } from './components/admin/Common Components/footer/footer.component';
 
@@ -71,12 +59,6 @@ import { DmfooterComponent } from './components/Dealer Component/dealer/Common C
 import { ListofsalesengineerComponent } from './components/Dealer Component/dealer/listofsalesengineer/listofsalesengineer.component';
 
 
-import { RegistrationStep10Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step10/registration-step10.component';
-import { RegistrationStep11Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step11/registration-step11.component';
-import { RegistrationStep12Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step12/registration-step12.component';
-import { RegistrationStep13Component } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/registration-step13/registration-step13.component'
-
-import { CustomerListComponent } from './components/DealerSalesEngg Component/dealer-sales-engg-dashboard/customer-list/customer-list.component';
 import { PennarSalesEnggDashboardComponent } from './components/PennarSalesEngg Component/pennar-sales-engg-dashboard/pennar-sales-engg-dashboard.component';
 import { RegisterPennarSalesEnginnerComponent } from './components/PennarSalesEngg Component/register-pennar-sales-enginner/register-pennar-sales-enginner.component';
 import { PseSignInComponent } from './components/PennarSalesEngg Component/register-pennar-sales-enginner/pse-sign-in/pse-sign-in.component';
@@ -110,17 +92,6 @@ import { SalesManagerHoSignUpComponent } from './components/SalesManagerHo Compo
     DealerSalesEnggComponent,
     DSESignUpComponent,
     DseSignInComponent,
-    DealerSalesEnggDashboardComponent,
-    CustomerDetailsComponent,
-    RegistrationStep1Component,
-    RegistrationStep2Component,
-    RegistrationStep3Component,
-    RegistrationStep4Component,
-    RegistrationStep5Component,
-    RegistrationStep6Component,
-    RegistrationStep7Component,
-    RegistrationStep8Component,
-    RegistrationStep9Component,
     HeaderComponent,
     FooterComponent,
 
@@ -137,11 +108,6 @@ import { SalesManagerHoSignUpComponent } from './components/SalesManagerHo Compo
     ListofsalesengineerComponent,
     
    
-    RegistrationStep10Component,
-    RegistrationStep11Component,
-    RegistrationStep12Component,
-    RegistrationStep13Component,
-    CustomerListComponent,
     PennarSalesEnggDashboardComponent,
     RegisterPennarSalesEnginnerComponent,
     PseSignInComponent,
@@ -189,7 +155,7 @@ import { SalesManagerHoSignUpComponent } from './components/SalesManagerHo Compo
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  },AuthGuard,AdminService, [DealerSalesEnggService]],
+  },AuthGuard,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
