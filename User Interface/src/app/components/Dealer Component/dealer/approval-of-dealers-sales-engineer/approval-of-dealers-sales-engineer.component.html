@@ -1,0 +1,49 @@
+<p>
+  approval-of-dealers-sales-engineer works!
+</p>
+
+
+<app-dmheader></app-dmheader>
+<div class="modal-header">
+  <h4 class="modal-title" style="text-align: center"><b>Approval of Sales Engineer</b></h4>
+ </div>
+ <br>
+ <div class="col s12 col-md-12">
+  <table align="center" class=" table-bordered" id="dataTable" width="80%" cellspacing="0">
+      <!-- class="mytable" -->
+      <thead >
+        <th>ID</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>MobileNumber</th>
+        <th>Email Id</th>
+        <th>Approve</th>
+        <th>Deny</th>
+        </thead>
+      <tbody>
+       <tr *ngFor="let SalesEngg of _RegisterSalesEnggOfDealerService.SalesEnggOfDealer">
+
+        <td>{{ SalesEngg.SalesEnggId }}</td>  
+
+        <td>{{ SalesEngg.FirstName }}</td>
+
+        <td>{{ SalesEngg.LastName }}</td>
+
+        <td>{{ SalesEngg.MobileNumber }}</td>
+
+        <td>{{ SalesEngg.Email }}</td>
+        
+        <td><button class="btn btn-primary btnGroup btn-sm" type="button">Approve</button></td>
+        <td><button class="btn btn-danger Denybtn btn-sm" type="button" (click)="onDelete(SalesEngg._id);">Deny</button></td>
+
+      </tr> 
+    </tbody>
+    </table>
+</div>
+  <br><br><br>
+<button onclick="history.go(-1);" class="btn btn-outline-success " data-toggle="modal" style="margin-left: 44%"><i class="fa fa-dashboard"></i>&nbsp;Back to Dashboard</button>
+
+
+
+<!-- ADD FOOTER -->
+<app-dmfooter></app-dmfooter>

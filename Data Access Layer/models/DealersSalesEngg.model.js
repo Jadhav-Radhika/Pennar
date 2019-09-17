@@ -39,8 +39,8 @@ var DealersSalesEnggSchema = new mongoose.Schema({
     },
     PANNumber: {
         type: String,
-        required: 'PAN Number can\'t be empty',
-        unique: true
+        //required: 'PAN Number can\'t be empty',
+        //unique: true
     },
     AdharNumber: {
         type: String,
@@ -61,4 +61,4 @@ DealersSalesEnggSchema.path('Email').validate((val) => {
 }, 'Invalid e-mail.');
 
 //Third paramater is an name of the database
-mongoose.model('DealersSalesEngineer', DealersSalesEnggSchema , 'DealersSalesEngineer');
+mongoose.model('SalesEngineerOfDealer', DealersSalesEnggSchema , 'SalesEngineerOfDealer');

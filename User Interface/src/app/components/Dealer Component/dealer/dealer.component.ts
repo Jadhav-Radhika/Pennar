@@ -5,15 +5,20 @@ import { DealerCustomerDetailService } from '../../../Business Services/dealer-c
 import { ToastrService } from 'ngx-toastr';
 import { DealersCustomerDetail } from '../../../../../../Data Access Layer/models/DealersCustomerDetail.model';
 
+//Service for add new sales engineer of dealer
+import { RegisterSalesEnggOfDealerService } from '../../../Business Services/register-sales-engg-of-dealer.service';
+
 @Component({
   selector: 'app-dealer',
   templateUrl: './dealer.component.html',
   styleUrls: ['./dealer.component.css'],
-  providers:[DealerCustomerDetailService]
+  providers:[DealerCustomerDetailService, RegisterSalesEnggOfDealerService]
 })
 export class DealerComponent implements OnInit {
-
-  constructor(private _DealerCustomerDetailService : DealerCustomerDetailService, private router:Router, private _toastr: ToastrService) { }
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
+  constructor(private _DealerCustomerDetailService : DealerCustomerDetailService, private router:Router, private _toastr: ToastrService,
+    private _registerSalesEnggOfDealerService : RegisterSalesEnggOfDealerService) { }
 
   ngOnInit() {
     this.resetForm();
@@ -65,8 +70,45 @@ export class DealerComponent implements OnInit {
     });
   }
   
- //Add New Sales Engg Methods
+  //************************************************************************************************
+ //__________________________________Add New Sales Engg Methods____________________________________
+ //*************************************************************************************************
 
+ onSalesEnggOfDealerSubmission(form: NgForm) {
+  this._registerSalesEnggOfDealerService.PostSalesEnggOfDealer(form.value).subscribe(
+   res => {
+      this.showSucessMessage = true;
+     setTimeout(() => this.showSucessMessage = false, 4000);
+     this.resetForm(form);
+   },
+   err => {
+     if (err.status === 422) {
+        this.serverErrorMessages = err.error.join('<br/>');
+      }
+      else
+        this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+   }
+ );
+}
+
+resetSalesEnggOfDealerForm(form: NgForm) {
+  this._registerSalesEnggOfDealerService.selectedDealersSalesEngg = {
+   _id : '',
+  FirstName : '',
+  LastName : '',
+  Address : '',
+  Email : '',
+  MobileNumber : '',
+  PANNumber : '',
+  AdharNumber : '',
+  Password : ''
+
+  };
+  form.resetForm();
+  this.serverErrorMessages = '';
+}
+
+ 
   // code to toast notification
   showDeleteToaster(){
     this._toastr.warning("Record deleted successfully.")

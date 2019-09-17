@@ -4,6 +4,10 @@ import { NgForm,} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TransactionScreenService } from '../../../../Business Services/transaction-screen.service';
 import { GenerateProposalService } from '../../../../Business Services/generate-proposal.service';
+import { AddPresentTreatmentDetailService } from '../../../../Business Services/add-present-treatment-detail.service';
+
+
+import { RegisterPennarSalesEnginnerService } from '../../../../Business Services/register-pennar-sales-enginner.service';
 import { CustomerDetails } from '../../../../../../../Data Access Layer/models/CustomerDetails.model';
 import { Console } from '@angular/core/src/console';
 
@@ -11,9 +15,13 @@ import { Console } from '@angular/core/src/console';
   selector: 'app-customer-data-entry-screen',
   templateUrl: './customer-data-entry-screen.component.html',
   styleUrls: ['./customer-data-entry-screen.component.css'],
-  providers: [GenerateProposalService, TransactionScreenService]
+  providers: [GenerateProposalService, TransactionScreenService, AddPresentTreatmentDetailService]
 })
 export class CustomerDataEntryScreenComponent implements OnInit {
+  //Variable Declare to show toaster message
+  showSucessMessage: boolean;
+  serverErrorMessages: string;
+
   display='none'; 
   buttonType='Next';
   HEROES = this._GenerateProposal.GetRecommendedProducts1();
@@ -26,7 +34,8 @@ export class CustomerDataEntryScreenComponent implements OnInit {
 //     // {id: 4, name:'Flash'}
 // ];
  
-  constructor( private _TransactionScreen:TransactionScreenService, private _GenerateProposal:GenerateProposalService, private router:Router,
+  constructor( private _TransactionScreen:TransactionScreenService, private _GenerateProposal:GenerateProposalService, 
+    private router:Router, private _AddPresentTreatmentDetail : AddPresentTreatmentDetailService,
     private _toastr: ToastrService) { }
 
   
@@ -38,6 +47,51 @@ export class CustomerDataEntryScreenComponent implements OnInit {
   // this._GenerateProposal.GetRecommendedProducts1();
     
   }
+//Present Treatment Details Form
+onPresentTreatmentDetailsSubmit(form: NgForm) {
+  this._AddPresentTreatmentDetail.PostPresentTreatmentDetails(form.value).subscribe(
+   res => {
+      this.showSucessMessage = true;
+     setTimeout(() => this.showSucessMessage = false, 4000);
+     this.resetPresentTreatmentDetailForm(form);
+   },
+   err => {
+     if (err.status === 422) {
+        this.serverErrorMessages = err.error.join('<br/>');
+      }
+      else
+        this.serverErrorMessages = 'Something went wrong.Please contact admin.';
+   }
+ );
+}
+
+resetPresentTreatmentDetailForm(form: NgForm) {
+  this._AddPresentTreatmentDetail.selectedTreatmentInfo = {
+  _id : '',
+  SupplierName : '',
+  ProductName1 : '',
+  Dosage1 : '',
+  Price1 : '',
+  Function1 : '',
+  ProductName2 : '',
+  Dosage2 : '',
+  Price2 : '',
+  Function2 : '',
+  ProductName3 : '',
+  Dosage3 : '',
+  Price3 : '',
+  Function3 : '',
+  ProductName4 : '',
+  Dosage4 : '',
+  Price4 : '',
+  Function4 : ''
+
+  };
+  form.resetForm();
+  this.serverErrorMessages = '';
+}
+// *******************************************
+
   resetForm(form?:NgForm)
   {
     if(form)

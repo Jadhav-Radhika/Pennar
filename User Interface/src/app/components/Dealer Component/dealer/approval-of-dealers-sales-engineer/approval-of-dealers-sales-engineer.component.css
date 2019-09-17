@@ -1,0 +1,17 @@
+
+.mybtn{padding: 2px 5px;margin: 2px 5px;padding:5px 10px;}
+.resetbtn{margin-left:110px;}
+.mytable {
+    border-collapse: collapse;
+    text-align: center;
+    width:100%;
+  } 
+   th{background-color:dimgray;color:white;padding:10px 5px;text-align: center;}
+   .mytable tr{ background-color:ivory;}
+  .mytable th,td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  h4{text-align: center;margin-top: 10px;}
+#addBtn{width:220px; margin-left: 40%;margin-bottom:10px;}

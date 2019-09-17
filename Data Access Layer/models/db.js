@@ -15,11 +15,13 @@ require('./DSEUser.model');
 require('./DSEregister.model');
 //Add model for Registration of pennar sales engg
 require('./PSEregister.model');
+require('./PresentTreatmentDetail.model');
 
 //Add model for Registration of Sales Manager Ho
 require('./SalesManagerHOLogin.model');
 
 //Add DealerRegister Model
 require('./DealerRegister.model');
+require('./DealersSalesEngg.model');
 
 module.exports = mongoose;

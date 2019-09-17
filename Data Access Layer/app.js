@@ -20,12 +20,13 @@ var registerPennarSalesEnggController = require('./controllers/PSEregisterContro
 var registerDealerController = require('./controllers/DealerRegisterController');
 
 //Pennar Sales Engineer Controller
-var transactinDataController = require('./controllers/TransactionScreenController');
+// var transactinDataController = require('./controllers/TransactionScreenController');
+var presentTreatmentDetailController = require('./controllers/PresentTreatmentDetailController');
 var proposalDataController =  require('./controllers/ProposalDetailsController');
 
 //Dealer Controller 
 var dealerCustomerDetailsController = require('./controllers/DealersCustomerDetailController');
-var dealerSalesEnggController = require('./controllers/DealerSalesEnggController');
+var dealerSalesEnggController = require('./controllers/DealersSalesEnggController');
 
 //Sales Engineer Congtrioller
 var salesManagerHoLoginController = require('./controllers/SalesManagerHOLoginController');
@@ -73,7 +74,8 @@ app.use('/CustomerDetails', customerDetailsController);
 app.use('/RegisterDealerSalesEngineer', registerDealerSalesEnggController);
 //Pennar Sales Engineer
 app.use('/RegisterPennarSalesEngineer', registerPennarSalesEnggController);
-app.use('/TransactionDataScreen', transactinDataController );
+// app.use('/TransactionDataScreen', transactinDataController );
+app.use('/PresentTreatmentDetail', presentTreatmentDetailController);
 app.use('/ProposalDetails', proposalDataController );
 
 

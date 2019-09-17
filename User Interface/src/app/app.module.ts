@@ -77,6 +77,7 @@ import { CopperCorrosionControlComponent } from './components/admin/product-curd
 import { SalesManagerHoLoginComponent } from './components/SalesManagerHo Component/sales-manager-ho-login/sales-manager-ho-login.component';
 import { SalesManagerHoSignInComponent } from './components/SalesManagerHo Component/sales-manager-ho-login/sales-manager-ho-sign-in/sales-manager-ho-sign-in.component';
 import { SalesManagerHoSignUpComponent } from './components/SalesManagerHo Component/sales-manager-ho-login/sales-manager-ho-sign-up/sales-manager-ho-sign-up.component';
+import { ApprovalOfDealersSalesEngineerComponent } from './components/Dealer Component/dealer/approval-of-dealers-sales-engineer/approval-of-dealers-sales-engineer.component';
 
 
 
@@ -125,7 +126,8 @@ import { SalesManagerHoSignUpComponent } from './components/SalesManagerHo Compo
     CopperCorrosionControlComponent,
     SalesManagerHoLoginComponent,
     SalesManagerHoSignInComponent,
-    SalesManagerHoSignUpComponent
+    SalesManagerHoSignUpComponent,
+    ApprovalOfDealersSalesEngineerComponent
 
   ],
   imports: [

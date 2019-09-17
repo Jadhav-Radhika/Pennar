@@ -38,8 +38,8 @@ import { RegisterDealerComponent } from './components/Dealer Component/register-
 import { DealerSignUpComponent } from './components/Dealer Component/register-dealer/dealer-sign-up/dealer-sign-up.component';
 import { DealerSignInComponent } from './components/Dealer Component/register-dealer/dealer-sign-in/dealer-sign-in.component';
 import {DealerComponent} from './components/Dealer Component/dealer/dealer.component';
-import{ ListofsalesengineerComponent } from './components/Dealer Component/dealer/listofsalesengineer/listofsalesengineer.component';
-
+import { ListofsalesengineerComponent } from './components/Dealer Component/dealer/listofsalesengineer/listofsalesengineer.component';
+import { ApprovalOfDealersSalesEngineerComponent} from './components/Dealer Component/dealer/approval-of-dealers-sales-engineer/approval-of-dealers-sales-engineer.component';
 
 import { from } from 'rxjs';
 //Pennar Sales Engineer components//
@@ -163,12 +163,15 @@ export const appRoutes: Routes = [
         children: [{ path: '', component: DealerSignInComponent }]
     },
     {
-        path: 'DealerDashboard', component: DealerComponent
+        path: 'DealerDashboard', component: DealerComponent,
     },
 
     {
         path: 'ListofsalesengineerComponent', component: ListofsalesengineerComponent,
         children: [{ path: '', component: DseSignInComponent}]
+    },
+    {
+        path: 'SalesEngineerApproval', component: ApprovalOfDealersSalesEngineerComponent
     },
 
     //Pennar Sales Engineer Routes//

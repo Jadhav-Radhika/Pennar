@@ -1119,64 +1119,119 @@
     
                     <!-- Modal body -->
                     <div class="modal-body">
+                            <form #PresentTreatmentDetailForm="ngForm" (ngSubmit)="PresentTreatmentDetailForm.valid && onPresentTreatmentDetailsSubmit(PresentTreatmentDetailForm)">
                             <div class="row" style="margin: auto; width: 95%; padding: 10px;">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <table class="table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th colspan="4" style="text-align: center;">
-                                                            <h4>Present Treatment Details</h4></th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th colspan="2" style="text-align: right;">
-                                                            <h4>Supplier Name </h4></th>
-                                                        <th colspan="2" style="text-align: left;"> &nbsp;&nbsp;
-                                                            <input type="textbox" style="color:black;">
-                                                        </th>
-                                                    </tr>
-    
-                                                    <tr>
-                                                        <th style="width:25%;">Product Name</th>
-                                                        <th style="width:25%;">Dose</th>
-                                                        <th style="width:25%;">Unit</th>
-                                                        <th style="width:25%;">Price Rs/kg</th>
-                                                    </tr>
-                                                </thead>
-                                                <!--End of table head-->
-    
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Benz</td>
-                                                        <td>100</td>
-                                                        <td>PPM</td>
-                                                        <td>150</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Benz</td>
-                                                        <td>100</td>
-                                                        <td>PPM</td>
-                                                        <td>150</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <!--End of the card body-->
-                                    </div>
-                                    <!--End of the card-->
+                                <div class="col-md-3"></div>
+                               <div class="col-md-2"><label style="line-height:30px">Supplier Name :</label></div>
+                               <div class="col-md-3">
+                                   <input type="text" #SupplierName="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.SupplierName" name="SupplierName"
+                                   required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !SupplierName.valid }">
                                 </div>
-                                <!--End of The column-->
+                                <div class="col-md-4"></div>
                             </div>
-                            <!--End of the Row-->
-    
+                            <p><b>First Product : </b></p>
+                            <div class="row">
+                            <div class="col-md-3"><label >Product Name : </label>
+                            <input type="text" #ProductName1="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.ProductName1" name="ProductName1"
+                            required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !ProductName1.valid }">
+                            </div>
+
+                            <div class="col-md-3"><label>Dosage : </label>
+                                <input type="text" #Dosage1="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Dosage1" name="Dosage1"
+                                required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Dosage1.valid }">
+                            </div>
+
+                            <div class="col-md-3"><label>Price Rs/Kg : </label>
+                                <input type="text" #Price1="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Price1" name="Price1"
+                                required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Price1.valid }">
+                            </div>
+
+                            <div class="col-md-3"><label>Function : </label>
+                                <input type="text" #Function1="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Function1" name="Function1"
+                                required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Function1.valid }">
+                            </div>
+                        </div><!--End of the Row--><br>
+
+                        <p><b>Second Product : </b></p>
+                        <div class="row">
+                        <div class="col-md-3"><label>Product Name : </label>
+                        <input type="text" #ProductName2="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.ProductName2" name="ProductName2"
+                        required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !ProductName2.valid }">
+                        </div>
+
+                        <div class="col-md-3"><label>Dosage : </label>
+                            <input type="text" #Dosage2="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Dosage2" name="Dosage2"
+                            required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Dosage2.valid }">
+                        </div>
+
+                        <div class="col-md-3"><label>Price Rs/Kg : </label>
+                            <input type="text" #Price2="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Price2" name="Price2"
+                            required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Price2.valid }">
+                        </div>
+
+                        <div class="col-md-3"><label>Function : </label>
+                            <input type="text" #Function2="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Function2" name="Function2"
+                            required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Function2.valid }">
+                        </div>
+                    </div><!--End of the Row--><br>
+                            
+                    <p><b>Third Product : </b></p>
+                    <div class="row">
+                    <div class="col-md-3"><label>Product Name : </label>
+                    <input type="text" #ProductName3="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.ProductName3" name="ProductName3"
+                    required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !ProductName3.valid }">
+                    </div>
+
+                    <div class="col-md-3"><label>Dosage : </label>
+                        <input type="text" #Dosage3="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Dosage3" name="Dosage3"
+                        required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Dosage3.valid }">
+                    </div>
+
+                    <div class="col-md-3"><label>Price Rs/Kg : </label>
+                        <input type="text" #Price3="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Price3" name="Price3"
+                        required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Price3.valid }">
+                    </div>
+
+                    <div class="col-md-3"><label>Function : </label>
+                        <input type="text" #Function3="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Function3" name="Function3"
+                        required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Function3.valid }">
+                    </div>
+                </div><!--End of the Row--><br>
+
+                <p><b>Fourth Product : </b></p>
+                <div class="row">
+                <div class="col-md-3"><label>Product Name : </label>
+                <input type="text" #ProductName4="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.ProductName4" name="ProductName4"
+                required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !ProductName4.valid }">
+                </div>
+
+                <div class="col-md-3"><label>Dosage : </label>
+                    <input type="text" #Dosage4="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Dosage4" name="Dosage4"
+                    required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Dosage4.valid }">
+                </div>
+
+                <div class="col-md-3"><label>Price Rs/Kg : </label>
+                    <input type="text" #Price4="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Price4" name="Price4"
+                    required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Price4.valid }">
+                </div>
+
+                <div class="col-md-3"><label>Function : </label>
+                    <input type="text" #Function4="ngModel" [(ngModel)]="_AddPresentTreatmentDetail.selectedTreatmentInfo.Function4" name="Function4"
+                    required  [ngClass]="{'invalid-textbox' :PresentTreatmentDetailForm.submitted && !Function4.valid }">
+                </div>
+                
+                <button class="btn btn-info btnGroup" type="submit" onclick="onPresentTreatmentDetailsSubmit()">Save</button>
+            </div><!--End of the Row-->
+            
                             <div class="input-field col s12 " id="my_centered_buttons" style="margin-top: 28px;margin-bottom: 20px;">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PhotoFileUploadModel" data-dismiss="modal" style="width: 15%;">Back</button>&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-success right " type="submit" style="width: 15%;">Submit</button>&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-success right " type="submit" style="width: 15%;" onclick="onPresentTreatmentDetailsSubmit()">Submit</button>&nbsp;&nbsp;&nbsp;
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 15%;">Close</button>&nbsp;&nbsp;&nbsp;
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ProductRecommendationModel"
                                 (click)="GetRecommendedProducts(TowerDetailsForm);"data-dismiss="modal" style="width: 15%;">Next</button>&nbsp;&nbsp;&nbsp;
                             </div>
+
+                        </form>
                     </div>
                     <!-- End of Modal body -->
                 </div>

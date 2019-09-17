@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-primary button btn-sm" data-toggle="modal" data-target="#AddNewSalesEngineerModel"><i class="fa fa-check-square-o"></i>&nbsp;Add New Sales Engineer</button>
     <button type="button" class="btn btn-success button1 btn-sm" style="margin-left: 20px;" id="addCustBtn" data-toggle="modal" data-target="#AddNewCustomerModel"> <i class="fa fa-plus"></i>&nbsp;Add new Customer </button>
     <button routerLink="/ListofsalesengineerComponent" type="button" class="btn btn-info button1 btn-sm" style="margin-left: 20px;" > <i class="fa fa-list"></i>&nbsp;List Of Sales Engineer</button>
-    <button routerLink="/Dealer/SalesEngineerApproval" type="button" class="btn btn-warning button1 btn-sm" style="margin-left: 20px;"  title="Under Progress"><i class="fa fa-list"></i> &nbsp;Approval Pending For Sales Engineer </button>
+    <button routerLink="/SalesEngineerApproval" type="button" class="btn btn-warning button1 btn-sm" style="margin-left: 20px;"  title="Under Progress"><i class="fa fa-list"></i> &nbsp;Approval Pending For Sales Engineer </button>
     <!-- <button (click)="onLogout()" type="button" class="btn btn-primary button btn-sm btn-dark" style="float: right;border-radius: 50px 50px 50px 50px; padding: 5px 20px;margin-right: -80px; "><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Logout</button>
   </div> -->
   </div>
@@ -326,7 +326,7 @@
  </div>
 
 
- <!-- ADD NEW SALES ENGINEER -->
+ <!-- ADD NEW SALES ENGINEER OF DEALER -->
   <!-- CUSTOMER DETAILS POP UP MODEL -->
   <div class="container">
     <div class="row">
@@ -345,11 +345,12 @@
       
       <!-- Modal body -->
       <div class="modal-body" >
-      <form >
+      <form #AddNewSalesEnggOfDealerForm="ngForm" (ngSubmit)="AddNewSalesEnggOfDealerForm.valid && onSalesEnggOfDealerSubmission(AddNewSalesEnggOfDealerForm)" >
         <div class="row">
           <div class="input-field col-md-4"><label>First Name :</label></div>
           <div class="input-field col-md-8">
-          <input type="text" >
+          <input type="text" #FirstName="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.FirstName" name="FirstName"
+          required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !FirstName.valid }">
         </div>
         </div>
         <!-- Validation Div -->
@@ -358,7 +359,8 @@
             <div class="row">
             <div class="input-field col-md-4"><label>Last Name :</label></div>
             <div class="input-field col-md-8">
-            <input type="text">
+            <input type="text" #LastName="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.LastName" name="LastName"
+            required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !LastName.valid }">
           </div>
           </div>
           <!-- Validation Div -->
@@ -367,7 +369,8 @@
             <div class="row">
               <div class="input-field col-md-4"><label>Address :</label></div>
               <div class="input-field col-md-8">
-              <input type="text" >
+              <input type="text" #Address="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.Address" name="Address"
+              required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !Address.valid }">
             </div>
             </div>
             <!-- Validation Div -->
@@ -376,7 +379,8 @@
               <div class="row">
                 <div class="input-field col-md-4"><label>Email :</label></div>
                 <div class="input-field col-md-8">
-                <input type="text" >
+                <input type="text" #Email="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.Email" name="Email"
+                required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !Email.valid }">
               </div>
               </div>
               <!-- Validation Div -->
@@ -384,7 +388,8 @@
                 <div class="row">
                   <div class="input-field col-md-4"><label>Mobile No :</label></div>
                   <div class="input-field col-md-8">
-                  <input type="text" >
+                  <input type="text" #MobileNumber="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.MobileNumber" name="MobileNumber"
+                  required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !MobileNumber.valid }">
                 </div>
                 </div>
                 <!-- Validation Div -->
@@ -393,7 +398,8 @@
                   <div class="row">
                     <div class="input-field col-md-4"><label>PAN No :</label></div>
                     <div class="input-field col-md-8">
-                    <input type="text" >
+                    <input type="text" #PANNumber="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.PANNumber" name="PANNumber"
+                    required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !PANNumber.valid }">
                   </div>
                   </div>
                   <!-- Validation Div -->
@@ -402,7 +408,8 @@
                     <div class="row">
                       <div class="input-field col-md-4"><label>Adhar No :</label></div>
                       <div class="input-field col-md-8">
-                      <input type="text" >
+                      <input type="text" #AdharNumber="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.AdharNumber" name="AdharNumber"
+                      required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !AdharNumber.valid }">
                     </div>
                     </div>
                     <!-- Validation Div -->
@@ -411,7 +418,8 @@
                       <div class="row">
                         <div class="input-field col-md-4"><label>Password :</label></div>
                         <div class="input-field col-md-8">
-                        <input type="text" >
+                        <input type="text" #Password="ngModel" [(ngModel)]="_registerSalesEnggOfDealerService.selectedDealersSalesEngg.Password" name="Password"
+                        required  [ngClass]="{'invalid-textbox' :AddNewSalesEnggOfDealerForm.submitted && !Password.valid }">
                       </div>
                       </div>
                       <!-- Validation Div -->
@@ -422,7 +430,7 @@
                           <div class="input-field col s12 " id="my_centered_buttons" style="margin-top: 28px;margin-bottom: 20px;">
                             &nbsp;&nbsp; 
                             <!-- <input type="submit" value="Sign Up"> -->
-                            <button class="btn btn-info btnGroup" type="submit" onclick="onPSESubmit()" >Submit for Approval</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="btn btn-info btnGroup" type="submit" onclick="onSalesEnggOfDealerSubmission()" >Submit for Approval</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;
                             <button type="button" class="btn btn-danger" data-dismiss="modal"  style="width: 25%;">Close</button>&nbsp;&nbsp;&nbsp;
                        
@@ -433,13 +441,22 @@
         
         
       </form>
+
     </div> <!--End of Model Body-->
+    <!-- Success message -->
+  <div class="success" *ngIf="showSucessMessage">
+    Saved successfully
+  </div>
+  
+  <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
   </div> <!--End of modal-content-->
    </div> <!--End of modal-dialog-->
    </div> <!--End of modal-->
-   </div><!--End Of Col-->
+   </div><!--End Of Col--> 
    </div><!--End Of Row-->
-
   </div><!--End Of Container-->
 
 
